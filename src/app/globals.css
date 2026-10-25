@@ -1,0 +1,451 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   MÍA'S K-POP PARTY — sistema visual
+   Rosa neón, violeta, lavanda, plata holográfica y violeta oscuro,
+   con acentos discretos en rojo y amarillo (guiño a McDonald's).
+   ===================================================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Paleta K-pop */
+  --color-neon: var(--kpop-neon);
+  --color-magenta: var(--kpop-magenta);
+  --color-grape: var(--kpop-grape);
+  --color-lavender: var(--kpop-lavender);
+  --color-holo: var(--kpop-holo);
+  --color-midnight: var(--kpop-midnight);
+  --color-mcd-red: var(--mcd-red);
+  --color-mcd-yellow: var(--mcd-yellow);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite;
+  --animate-shimmer: shimmer 3.5s linear infinite;
+  --animate-glow: glow 2.8s ease-in-out infinite;
+  --animate-confetti: confetti-fall 7s linear infinite;
+  --animate-beam: beam 7s ease-in-out infinite;
+  --animate-pop: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Paleta base */
+  --kpop-neon: #ff2e9a;
+  --kpop-magenta: #e5179c;
+  --kpop-grape: #a855f7;
+  --kpop-lavender: #c7a4ff;
+  --kpop-holo: #d8e5ff;
+  --kpop-midnight: #1a0b2e;
+  --mcd-red: #da291c;
+  --mcd-yellow: #ffc72c;
+
+  /* Tema claro: panel administrativo */
+  --background: #ffffff;
+  --foreground: #1f1330;
+  --card: #ffffff;
+  --card-foreground: #1f1330;
+  --popover: #ffffff;
+  --popover-foreground: #1f1330;
+  --primary: #ff2e9a;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f1ff;
+  --secondary-foreground: #4c1d95;
+  --muted: #f7f4fb;
+  --muted-foreground: #6b6480;
+  --accent: #f3e8ff;
+  --accent-foreground: #6b21a8;
+  --destructive: #da291c;
+  --border: #ece6f6;
+  --input: #e4dcf2;
+  --ring: #a855f7;
+
+  --chart-1: #ff2e9a;
+  --chart-2: #a855f7;
+  --chart-3: #c7a4ff;
+  --chart-4: #ffc72c;
+  --chart-5: #da291c;
+
+  --sidebar: #1a0b2e;
+  --sidebar-foreground: #f3e8ff;
+  --sidebar-primary: #ff2e9a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d1548;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #3a1d5c;
+  --sidebar-ring: #ff2e9a;
+}
+
+.dark {
+  --background: #140822;
+  --foreground: #f6f1ff;
+  --card: #1f1033;
+  --card-foreground: #f6f1ff;
+  --popover: #1f1033;
+  --popover-foreground: #f6f1ff;
+  --primary: #ff2e9a;
+  --primary-foreground: #ffffff;
+  --secondary: #2d1548;
+  --secondary-foreground: #f6f1ff;
+  --muted: #2a1442;
+  --muted-foreground: #b8a6d1;
+  --accent: #3a1d5c;
+  --accent-foreground: #ffffff;
+  --destructive: #ff5a4d;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: #c7a4ff;
+  --sidebar: #0f0619;
+  --sidebar-foreground: #f3e8ff;
+  --sidebar-primary: #ff2e9a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d1548;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #3a1d5c;
+  --sidebar-ring: #ff2e9a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  /* Área táctil mínima cómoda en teléfonos */
+  @media (pointer: coarse) {
+    button:not(.no-min-target),
+    [role="button"]:not(.no-min-target),
+    a.btn {
+      min-height: 44px;
+    }
+  }
+}
+
+@layer components {
+  /* Campo de formulario del panel administrativo */
+  .input-base {
+    @apply w-full rounded-xl border border-input bg-background px-3 py-2.5 text-base
+      placeholder:text-muted-foreground focus:border-ring focus:outline-none
+      focus:ring-2 focus:ring-ring/40 disabled:opacity-60 sm:text-sm;
+  }
+
+  /* Etiqueta de estado */
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold;
+  }
+}
+
+/* =====================================================================
+   Animaciones
+   ===================================================================== */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(3deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.94);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgb(255 46 154 / 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgb(255 46 154 / 0.9));
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-12vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(104vh) rotate(680deg);
+    opacity: 0;
+  }
+}
+
+@keyframes beam {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: rotate(var(--beam-angle, 0deg)) scaleY(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: rotate(var(--beam-angle, 0deg)) scaleY(1.15);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =====================================================================
+   Utilidades del escenario K-pop
+   ===================================================================== */
+
+/* Fondo de las páginas públicas */
+.kpop-stage {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, #ff2e9a33 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 20%, #a855f73d 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 70%, #c7a4ff33 0%, transparent 60%),
+    linear-gradient(170deg, #1a0b2e 0%, #2a1043 45%, #140822 100%);
+  background-attachment: fixed;
+  color: #f6f1ff;
+}
+
+/* Texto con degradado holográfico */
+.kpop-gradient-text {
+  background: linear-gradient(
+    100deg,
+    #ff2e9a 0%,
+    #ffc72c 22%,
+    #ffffff 40%,
+    #c7a4ff 58%,
+    #a855f7 78%,
+    #ff2e9a 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shimmer);
+}
+
+/* Tarjeta de cristal */
+.kpop-glass {
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.13), rgb(255 255 255 / 0.04));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow:
+    0 20px 50px -20px rgb(26 11 46 / 0.7),
+    inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+/* Borde holográfico animado */
+.kpop-holo-border {
+  position: relative;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.kpop-holo-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #ff2e9a, #ffc72c, #ffffff, #c7a4ff, #a855f7, #ff2e9a);
+  background-size: 300% 300%;
+  animation: var(--animate-shimmer);
+}
+
+/* Resplandor de neón para botones y títulos */
+.kpop-neon-glow {
+  box-shadow:
+    0 0 0 1px rgb(255 46 154 / 0.5),
+    0 0 18px rgb(255 46 154 / 0.45),
+    0 0 48px rgb(168 85 247 / 0.3);
+}
+
+.kpop-text-glow {
+  text-shadow:
+    0 0 10px rgb(255 46 154 / 0.6),
+    0 0 36px rgb(168 85 247 / 0.45);
+}
+
+/* Boleto de concierto: muescas laterales */
+.kpop-ticket {
+  position: relative;
+  --notch: 18px;
+  mask:
+    radial-gradient(circle var(--notch) at 0 var(--notch-y, 58%), transparent 98%, #000 100%)
+      0 0 / 100% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% var(--notch-y, 58%), transparent 98%, #000 100%) 0 0 /
+      100% 100% no-repeat;
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* Línea de perforación del boleto */
+.kpop-perforation {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgb(255 255 255 / 0.4) 0 6px,
+    transparent 6px 14px
+  );
+  height: 2px;
+}
+
+/* Patrón de luces de escenario */
+.kpop-beams {
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    transparent 0deg,
+    rgb(255 46 154 / 0.18) 12deg,
+    transparent 24deg,
+    rgb(168 85 247 / 0.16) 38deg,
+    transparent 52deg,
+    rgb(255 199 44 / 0.12) 66deg,
+    transparent 80deg,
+    rgb(199 164 255 / 0.16) 96deg,
+    transparent 110deg
+  );
+}
+
+/* Barra de progreso de cupos */
+.kpop-quota-fill {
+  background: linear-gradient(90deg, #ff2e9a, #a855f7, #c7a4ff);
+}
+
+/* Oculta el scroll horizontal de las tiras decorativas */
+.kpop-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.kpop-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =====================================================================
+   Accesibilidad: respetar la preferencia de menos movimiento
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .kpop-gradient-text {
+    background-position: 50% 0;
+  }
+  .kpop-decor {
+    display: none !important;
+  }
+}
+
+/* Impresión: pedido para el restaurante */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-break {
+    break-after: page;
+  }
+}
