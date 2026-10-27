@@ -33,6 +33,8 @@ create or replace function generate_invitation_token()
 returns text
 language sql
 volatile
+-- En Supabase hospedado pgcrypto vive en el esquema "extensions".
+set search_path = public, extensions
 as $$
   select replace(
            replace(

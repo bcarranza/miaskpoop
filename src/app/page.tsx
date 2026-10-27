@@ -18,7 +18,7 @@ import {
   StageLights,
   StarField,
 } from "@/components/kpop/decor"
-import { MusicPlayer } from "@/components/kpop/music-player"
+import { VideoEmbed } from "@/components/kpop/video-embed"
 import { SetupNotice } from "@/components/setup-notice"
 import { formatLongDate, formatTime, getCountdown, getEventStart } from "@/lib/date"
 import { getPublicEnvStatus } from "@/lib/env"
@@ -51,9 +51,6 @@ export default async function LandingPage() {
 
   return (
     <main className="kpop-stage relative flex min-h-dvh flex-col overflow-hidden">
-      {event.music_enabled && event.music_url && (
-        <MusicPlayer url={event.music_url} />
-      )}
       <StageLights />
       <AuroraBlobs />
       <StarField />
@@ -155,6 +152,10 @@ export default async function LandingPage() {
             Si no lo encuentras, escríbenos por WhatsApp y te lo reenviamos.
           </p>
         </section>
+
+        {event.music_enabled && event.music_url && (
+          <VideoEmbed url={event.music_url} className="mt-10" />
+        )}
 
         {/* Pie decorativo */}
         <div

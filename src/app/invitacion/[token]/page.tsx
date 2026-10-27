@@ -17,7 +17,7 @@ import {
   StarField,
 } from "@/components/kpop/decor"
 import { InvitationTicket } from "@/components/kpop/invitation-ticket"
-import { MusicPlayer } from "@/components/kpop/music-player"
+import { VideoEmbed } from "@/components/kpop/video-embed"
 import { Button } from "@/components/ui/button"
 import {
   formatLongDate,
@@ -51,9 +51,6 @@ export default async function InvitationPage({ params }: PageProps<"/invitacion/
 
   return (
     <main className="kpop-stage relative flex min-h-dvh flex-col overflow-hidden">
-      {event.music_enabled && event.music_url && (
-        <MusicPlayer url={event.music_url} />
-      )}
       <StageLights />
       <AuroraBlobs />
       <StarField />
@@ -189,6 +186,10 @@ export default async function InvitationPage({ params }: PageProps<"/invitacion/
             </>
           )}
         </div>
+
+        {event.music_enabled && event.music_url && (
+          <VideoEmbed url={event.music_url} className="mt-10" />
+        )}
 
         <DecorStrip className="mt-10" />
 

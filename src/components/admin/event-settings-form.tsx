@@ -339,26 +339,26 @@ export function EventSettingsForm({ event }: { event: EventRecord }) {
             className="mt-0.5 size-4 accent-[#ff2e9a]"
           />
           <span className="text-sm">
-            <span className="font-semibold">Ofrecer música en la invitación</span>
+            <span className="font-semibold">Mostrar video de YouTube en la invitación</span>
             <span className="block text-muted-foreground">
-              La música nunca se reproduce sola: aparece un botón para que la persona decida.
-              Usa únicamente audio con licencia que te permita compartirlo.
+              El video aparece al final de la página principal y de cada invitación; la persona
+              decide cuándo reproducirlo.
             </span>
           </span>
         </label>
 
         {values.music_enabled && (
           <Field
-            label="Enlace del audio"
+            label="Enlace del video de YouTube"
             className="mt-3"
             error={fieldErrors.music_url}
-            hint="Archivo .mp3 con licencia propia o libre de regalías."
+            hint="Por ejemplo https://www.youtube.com/watch?v=… o https://youtu.be/…"
           >
             <input
               type="url"
               value={values.music_url}
               onChange={(changeEvent) => set("music_url", changeEvent.target.value)}
-              placeholder="https://…/musica.mp3"
+              placeholder="https://www.youtube.com/watch?v=…"
               className="input-base"
             />
           </Field>
