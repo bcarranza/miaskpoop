@@ -341,8 +341,8 @@ export function EventSettingsForm({ event }: { event: EventRecord }) {
           <span className="text-sm">
             <span className="font-semibold">Mostrar video de YouTube en la invitación</span>
             <span className="block text-muted-foreground">
-              El video aparece al final de la página principal y de cada invitación; la persona
-              decide cuándo reproducirlo.
+              El video aparece al final de la página principal y de cada invitación. Empieza
+              solo y sin sonido; la persona toca 🔊 para escucharlo.
             </span>
           </span>
         </label>

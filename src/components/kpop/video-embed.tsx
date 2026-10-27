@@ -18,11 +18,12 @@ export function VideoEmbed({ url, className = "" }: { url: string; className?: s
     <section aria-label="Video de la fiesta" className={`kpop-glass w-full rounded-3xl p-3 sm:p-4 ${className}`}>
       <p className="mb-3 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-lavender">
         <Music className="size-3.5" aria-hidden />
-        ¡Dale play!
+        Toca 🔊 para escuchar
       </p>
       <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black/40">
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
+          // Los navegadores sólo permiten autoplay sin sonido; la persona lo activa en el video.
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&playsinline=1&rel=0`}
           title="Video de la fiesta"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
